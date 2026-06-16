@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">import tkinter as tk</p>
+<p class="p1">from tkinter import messagebox</p>
+<p class="p2"><br></p>
+<p class="p1">def add_task():</p>
+<p class="p1"><span class="Apple-converted-space">    </span>task = task_entry.get()</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if task:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>task_listbox.insert(tk.END, task)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>task_entry.delete(0, tk.END)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>else:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>messagebox.showwarning("Warning", "Please enter a task!")</p>
+<p class="p2"><br></p>
+<p class="p1">def delete_task():</p>
+<p class="p1"><span class="Apple-converted-space">    </span>try:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>selected = task_listbox.curselection()[0]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>task_listbox.delete(selected)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>except IndexError:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>messagebox.showwarning("Warning", "Please select a task!")</p>
+<p class="p2"><br></p>
+<p class="p1">root = tk.Tk()</p>
+<p class="p1">root.title("To-Do List")</p>
+<p class="p1">root.geometry("400x500")</p>
+<p class="p2"><br></p>
+<p class="p1">title = tk.Label(root, text="My To-Do List", font=("Arial", 18))</p>
+<p class="p1">title.pack(pady=10)</p>
+<p class="p2"><br></p>
+<p class="p1">task_entry = tk.Entry(root, width=30, font=("Arial", 12))</p>
+<p class="p1">task_entry.pack(pady=10)</p>
+<p class="p2"><br></p>
+<p class="p1">add_button = tk.Button(root, text="Add Task", command=add_task)</p>
+<p class="p1">add_button.pack(pady=5)</p>
+<p class="p2"><br></p>
+<p class="p1">task_listbox = tk.Listbox(root, width=40, height=15)</p>
+<p class="p1">task_listbox.pack(pady=10)</p>
+<p class="p2"><br></p>
+<p class="p1">delete_button = tk.Button(root, text="Delete Selected Task", command=delete_task)</p>
+<p class="p1">delete_button.pack(pady=5)</p>
+<p class="p2"><br></p>
+<p class="p1">root.mainloop()</p>
+</body>
+</html>
